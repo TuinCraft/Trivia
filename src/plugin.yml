@@ -1,0 +1,21 @@
+name: Trivia
+main: nl.blaatz0r.Trivia.Trivia
+description: Trivia is a quiz game that is played in the minecraft chatbox.
+version: 1.5
+
+commands:
+    trivia:
+        description: Trivia related commands
+        usage: /trivia help|admin|top|rank|stop|start|restart|load|add [filename]
+
+    next:
+        description: Skips to the next Trivia question
+        usage: /<command>
+        
+    votenext:
+        description: Calls a vote for the next Trivia question
+        usage: /<command>
+        
+    hint:
+        description: Calls the next hint for the current Trivia question, if possible
+        usage: /<command>
