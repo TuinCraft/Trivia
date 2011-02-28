@@ -37,8 +37,8 @@ import org.bukkit.plugin.Plugin;
  */
 public class Trivia extends JavaPlugin {
 
-    public final String name = this.getDescription().getName();
-    public final String version = this.getDescription().getVersion();
+    public String name;
+    public String version;
 	private final TriviaPlayerListener playerListener = new TriviaPlayerListener(this);
     //public static iConomy ic;
     public static Logger log;    
@@ -63,6 +63,8 @@ public class Trivia extends JavaPlugin {
     // DEFAULT PLUGIN FUNCTIONS
     
     public void onEnable() {
+    	this.name = this.getDescription().getName();
+    	this.version = this.getDescription().getVersion();
 
         log = Logger.getLogger("Minecraft");
         log.info(name + " " + version + " enabled");
