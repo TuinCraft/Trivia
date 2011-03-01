@@ -3,8 +3,6 @@ package nl.blaatz0r.Trivia;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -95,62 +93,6 @@ public class TriviaPlayerListener extends PlayerListener {
     	p.sendMessage(ChatColor.LIGHT_PURPLE + "You have been awarded a random item!");
     	
     }
-    
-    /*
-    public void onPlayerCommand(PlayerChatEvent event) {
-    	
-    	//String[] split = event.getMessage().split(" +");
-    	//String command = split[0];
-    	Player player = event.getPlayer();
-    	
-    	String[] sects = event.getMessage().split(" +", 2); // This will contain two strings: the command, and everything else.
-		String[] args = (sects.length > 1 ? sects[1].split(" +") : new String[0]); // This will contain all the arguments after the command, space-delimited.
-		
-		Commands cmd;
-		
-		try {
-			// Determine a matching command based on sects[0], but remove the leading "/".
-			cmd = Commands.valueOf(sects[0].substring(1).toUpperCase()); 
-		} catch (Exception ex) {
-			return;
-		}
-
-		try	{
-			// We can use a switch because we converted the command string into an enum.
-			switch (cmd) {
-			case TRIVIA:
-				
-				break;
-				
-			case VOTENEXT:
-					
-				break;
-				
-			case NEXT:
-				
-				break;
-			
-			case HINT:
-				
-	    		break;
-	    		
-			default:
-				return; // We forgot to implement a command: treat it as non-existent.
-			}
-		} catch (NoSuchMethodError ex) {
-			// We are running an old version of CraftBukkit that does not support generateTree or generateBigTree.
-			player.sendMessage("The server is not recent enough to support " + sects[0].toLowerCase() + ".");
-		} catch (Exception ex) {
-			// Unexpected error encountered.  Tell the user.  Can be thrown on purpose to notify the user of syntax errors and such.
-			player.sendMessage(Trivia.PREFIX_TRIVIA + "Error: " + ex.getMessage());
-		}
-		
-    	Logger.getLogger("Minecraft").log(Level.INFO, String.format("%1$s issued command: %2$s", player.getName(), event.getMessage()));
-    	event.setCancelled(true);
-	    
-    	
-    }
-    */
     
     public void onPlayerChat(PlayerChatEvent event) {
     	String msg = event.getMessage();

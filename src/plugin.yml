@@ -6,7 +6,7 @@ version: 1.5
 commands:
     trivia:
         description: Trivia related commands
-        usage: /trivia help|admin|top|rank|stop|start|restart|load|add [filename]
+        usage: /<command> help
 
     next:
         description: Skips to the next Trivia question
