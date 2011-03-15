@@ -26,23 +26,26 @@ public class VoteNextExecutor implements CommandExecutor {
 				} else if (plugin.voted.contains(player)) {
 					player.sendMessage(Trivia.PREFIX_TRIVIA + ChatColor.BLUE + "You have already voted!");
 				} else {
-					if (plugin.votes == 0 && Trivia.Permissions.has(player, "Trivia.startvote")) {
+					if (Trivia.Permissions.has(player, "Trivia.startvote")) {
+					    if (plugin.voted.contains(player)) {
+					        player.sendMessage(Trivia.PREFIX_TRIVIA + "You have already voted.");
+					    } else {
 						plugin.voted.add(player);
-						plugin.votes++;
 						double limit = ((double)plugin.triviaUsers.size() / 2.0);
-						if (plugin.votes > limit) {
+						if (plugin.voted.size() > limit) {
 							plugin.nextQuestion();
 				    		for (Player p : plugin.triviaUsers) {
 					        	p.sendMessage(Trivia.PREFIX_TRIVIA + ChatColor.BLUE + "Vote succeeded!");
 					        }
 						} else {
 							for (Player p : plugin.triviaUsers) {
-					        	p.sendMessage(Trivia.PREFIX_TRIVIA + ChatColor.BLUE + " voted for the next question. [" + plugin.votes + "/" + (int)(Math.ceil(limit)+1) + ChatColor.BLUE + "]");
-					        	if(plugin.votes == 1) {
+					        	p.sendMessage(Trivia.PREFIX_TRIVIA + ChatColor.BLUE + " voted for the next question. [" + plugin.voted.size() + "/" + (int)(Math.ceil(limit)+1) + ChatColor.BLUE + "]");
+					        	if(plugin.voted.size() == 1 && p != player) {
 					        		p.sendMessage(ChatColor.BLUE + "For the next question, use " + ChatColor.BLUE + "/votenext");
 					        	}
 					        }
 						}
+					    }
 					} else {
 						player.sendMessage(Trivia.PREFIX_TRIVIA + "You don't have permissions to start a new vote.");
 					}

@@ -56,7 +56,6 @@ public class Trivia extends JavaPlugin {
     public int hints;
     private String[] questions;
     public boolean canAnswer;
-    public int votes;
     public List<Player> voted;
     private boolean triviaRunning;
     
@@ -145,7 +144,6 @@ public class Trivia extends JavaPlugin {
 	            	p.sendMessage(Trivia.PREFIX_TRIVIA + "Trivia has started! \\o/");
 	            }
 			}
-			votes = 0;
 	        voted = new ArrayList<Player>();
 	        startTime = new Date().getTime();
 	    	hints = 0;
@@ -185,7 +183,6 @@ public class Trivia extends JavaPlugin {
     	}
     	
         voted = new ArrayList<Player>();
-        votes = 0;
         hints = 0;
         canAnswer = false;
     	triviaRunning = false;
@@ -204,7 +201,6 @@ public class Trivia extends JavaPlugin {
 	 * Resets the number of hints, reads a question, creates a hint and enables answering.
 	 */
 	public void nextQuestion() {
-		this.votes = 0;
 		this.voted = new ArrayList<Player>();
 		this.hints = 0;
 		this.startTime = new Date().getTime();
